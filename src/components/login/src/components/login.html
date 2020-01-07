@@ -1,0 +1,54 @@
+<section class="home container">
+  <div class="row">
+    <div class="col">
+      <br>
+      <h3>Login</h3>
+      <br>
+      <form @submit.prevent="login" method="post">
+        <div name="email" class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" name="email" v-model="email" placeholder="email">
+        </div>
+        
+        <div name="pws" class="form-group">
+          <label for="pws">Password:</label>
+          <input type="password" class="form-control" name="pws" v-model="password">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Logar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="col">
+      <br>
+      <h3>Cadastrar</h3>
+      <br>
+      <form @submit.prevent="signup" method="post">
+        <div name="name" class="form-group">
+          <label for="name">Nome:</label>
+          <input type="text" class="form-control" name="name" v-model="name" placeholder="Nome">
+        </div>
+
+        <div name="email" class="form-group">
+          <label for="cemail">Email:</label>
+          <input type="text" class="form-control" name="cemail" v-model="cemail" placeholder="email">
+        </div>
+        
+        <div name="pws" class="form-group">
+          <label for="pws">Password:</label>
+          <input type="cpassword" class="form-control" name="pws" v-model="cpassword">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br><br><br><br>
+  {{ status }}
+
+  <router-link to="/dashboard">Go to dashboard</router-link>
+</section>

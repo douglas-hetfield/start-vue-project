@@ -1,4 +1,4 @@
-<template src="./components/login.html"></template>
-<script src="./components/login.js"></script>
-<style src="./components/login.scss" scoped lang="scss"></style>
+<template src="./src/components/login.html"></template>
+<script src="./src/components/login.js"></script>
+<!-- <style src="./src/components/login.scss" scoped lang="scss"></style> -->
 
