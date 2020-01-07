@@ -41,15 +41,33 @@ export default {
       
       console.log(data);
       Axios.post(this.API_URL + 'oauth/token', data).then(res => {
-        console.log(res);
-        this.email = res.email,
-        this.password = res.password
+        localStorage.setItem('currentToken', btoa(JSON.stringify(res['data']['access_token'])));
         this.$router.push('dashboard') 
       }
       , error => {
         console.log(error);
-        this.status = "Ops, verifique seu Email e Senha!";
+        this.status = "Ops... algo deu errado, verifique seu Email e Senha!";
         
+      });
+    },
+
+    signup(){
+      const data = {
+        grant_type: this.GRANT_TYPE,
+        client_id: this.CLIENT_ID,
+        client_secret: this.CLIENT_SECRET,
+        name: this.name,
+        username: this.cemail,
+        password: this.cpassword,
+      };
+
+      Axios.post(this.API_URL + 'oauth/clients', data).then(res => {
+        alert("usuario cadastrado com sucesso!");
+        console.log(res);
+      },
+      error =>{
+        alert("ops... parece que temos algum problema");
+        console.log("erro: "+ error)
       });
     }
   }
