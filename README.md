@@ -1,4 +1,4 @@
-# Fullstack project with Laravel 6 and Vue 4.1.2
+# Fullstack project with Laravel 6 and Vue 2
 
  - criação e configuração do projeto com vue:
     - instalação do vue
