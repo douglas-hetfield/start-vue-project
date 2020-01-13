@@ -33,7 +33,6 @@ export default {
 
     logout: function() {
       this.$store.dispatch('logout').then(response =>{
-        console.log(response)
         if(response['data']['success'] == true){
           alert("deslogado com sucesso!")
           localStorage.removeItem('access_token')
