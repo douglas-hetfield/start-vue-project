@@ -1,6 +1,9 @@
+<<<<<<< HEAD
+=======
 import Axios from "axios"
 
 
+>>>>>>> 9d292c181d34b61ab310bbc19c60168d8971110e
 export default {
   name: 'login',
   components: {},
@@ -12,6 +15,41 @@ export default {
       cemail: '',
       password: '',
       cpassword: '',
+<<<<<<< HEAD
+    }
+  },
+  computed: {
+  },
+  mounted () {
+  },
+  methods: {
+    login(){
+      this.$store.dispatch('retrieveToken', {
+        username: this.email,
+        password: this.password,
+      })
+      .then(response => {
+        console.log(response)
+        this.$router.push('dashboard') 
+      })
+    },
+
+    signup(){
+      this.$store.dispatch('register', {
+        name: this.name,
+        email: this.cemail,
+        password: this.cpassword,
+      })
+      .then(response => {
+        console.log(response)
+        alert('Cadastrado com sucesso!')
+      },
+      error => {
+        alert('Ops, aconteceu algum erro ao cadastrar.')
+        console.log(error);
+      })
+    
+=======
       status: null,
       API_URL: null,
       GRANT_TYPE: null,
@@ -69,6 +107,7 @@ export default {
         alert("ops... parece que temos algum problema");
         console.log("erro: "+ error)
       });
+>>>>>>> 9d292c181d34b61ab310bbc19c60168d8971110e
     }
   }
 }

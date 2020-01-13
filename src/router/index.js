@@ -15,10 +15,24 @@ const routes = [
 	{
 		name: 'dashboard',
 		path: '/dashboard',
-		component: dashboard
+		component: dashboard,
+		meta: {
+			requiresAuth: true,
+		},
+		
 	}
 ]
 
 const router = new Router({ routes })
+
+router.beforeEach((to, from, next) => {
+	if(to.matched.some(route => route.meta.requiresAuth)) {
+		if(localStorage.getItem("access_token") == null) {
+			next({ path: '/login' });
+			router.push('/') 
+		}
+	}
+	next();
+});
 
 export default router
