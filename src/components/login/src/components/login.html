@@ -1,0 +1,95 @@
+
+<section class="login" id="background">
+  <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" >
+    <div class="auth-box">
+        <div id="loginform" v-if="!rememberForm">
+            <div class="logo"> <!-- transferir o style-->
+                <span class="db"><img src="../../../../assets/login-component/logo-icon.png" alt="logo" /></span>
+                <h5 class="font-medium m-b-20">Yschool admin</h5>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20" id="loginform" @submit.prevent="login" novalidate>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                            </div>
+                            <input v-on:input="checkform" type="email" class="form-control form-control-lg" placeholder="Email" v-model="email" aria-label="Username" aria-describedby="basic-addon1" required autofocus
+                            name="username" id="username" required>
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
+                            </div>
+                            <input v-on:input="checkform" type="password" class="form-control form-control-lg" placeholder="Senha"  v-model="password" aria-label="Password" aria-describedby="basic-addon1" required
+                            name="password" id="password"  required>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <a v-on:click="rememberPassword" href="javascript:void(0)" id="to-recover" class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Esqueceu a senha?</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-primary" type="submit" :disabled="!disableSendButton" >Entrar <img
+                                    src="../../../../assets/login-component/loading_login.gif" v-if="submitted" alt="" ></button>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-danger" v-if="errorCredentials">
+                            <strong>Erro!</strong> Email ou senha inválidos.
+                        </div>
+                      
+                        <div class="form-group m-b-0 m-t-10">
+                            <div class="col-sm-12 text-center">
+                                <p class="mt-5 mb-3 text-muted text-center">&copy;Yschool {{ new Date().getFullYear() }} - Todos os direitos Ycloud.  </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+   
+        <div v-if="rememberForm">
+            <div class="logo">
+                <span class="db"><img src="../../../../assets/login-component/logo-icon.png" alt="logo" /></span>
+                <h5 class="font-medium m-b-20">Yschool admin</h5>
+                <span>Digite seu email para redefinir sua senha.</span>
+            </div>
+            <br>
+            <div class="row m-t-20">
+                <!-- Form -->
+                <form class="col-12"  >
+                    <!-- email -->
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input class="form-control form-control-lg" type="email" required="" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="custom-control custom-checkbox">
+                                <a v-on:click="rememberPassword" href="javascript:void(0)" id="to-recover" class="text-dark float-right"><i class="fa fa-lock m-r-5"></i> Voltar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- pwd -->
+                    <div class="row m-t-20">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-lg btn-danger" type="submit" name="action">Redefinir senha</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
